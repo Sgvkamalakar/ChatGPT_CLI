@@ -1,7 +1,7 @@
 import os,re,json,logging,argparse
 from config import Config
 from session import ChatSession
-from PromptsManager import PromptsManager
+from prompts import PromptsManager
 from colors import *
 
 __version__ = '0.1.0'
