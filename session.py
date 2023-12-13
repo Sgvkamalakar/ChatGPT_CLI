@@ -26,7 +26,7 @@ class ChatSession:
 
     def chat(self, user_message, params_override=None):
         self.messages.append(user_message)
-        res_message, data, messages = self.create_completion(params_override=params_override)
+        res_message = self.create_completion(params_override=params_override)
         self.messages.append(res_message)
         return res_message
 
@@ -41,7 +41,7 @@ class ChatSession:
             messages = self.messages
         else:
             messages = list(filter(lambda x: x['role'] == 'system', self.messages))
-            # assume the last message is always the user message
+            
             messages.append(self.messages[-1])
 
         data = dict(self.params)
@@ -53,13 +53,13 @@ class ChatSession:
         )
 
         try:
-            res, body_b = http_request('POST', url, headers=headers, data=data, logger=lg, timeout=Config.timeout)
+            body_b = http_request('POST', url, headers=headers, data=data, logger=lg, timeout=Config.timeout)
         except HTTPError as e:
             raise RequestError(e.status, e.read().decode()) from None
         res_data = json.loads(body_b)
         res_message = res_data['choices'][0]['message']
 
-        return res_message, res_data, messages
+        return res_message
 
 def http_request(method, url, params=None, headers=None, data: Optional[Union[dict, list, bytes]] = None, timeout=None, logger=None) -> Tuple[HTTPResponse, bytes]:
     if params:
@@ -80,7 +80,7 @@ def http_request(method, url, params=None, headers=None, data: Optional[Union[di
         body_b: bytes = e.partial
     if logger:
         logger.debug(f'response: {res.status}, {body_b}')
-    return res, body_b
+    return body_b
 
 
 class RequestError(Exception):
