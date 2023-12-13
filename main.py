@@ -1,7 +1,7 @@
 import os,re,json,logging,argparse
 from config import Config
 from session import ChatSession
-from prompts import PromptsManager
+from PromptsManager import PromptsManager
 from colors import *
 
 __version__ = '0.1.0'
@@ -61,6 +61,8 @@ def main():
         reply(session, pm)
 
 
+
+
 def chat(session, pm, prompt):
     user_message = pm.new_user_message(prompt)
     try:
@@ -80,13 +82,14 @@ def reply(session, pm):
     user_name = ""
     magenta=esc(35)
     while not user_name: 
-        user_name = input(f"{magenta}Bot>Hello user 👋!! Enter your name to start the converstation: ")
+        user_name = input(f"{magenta}Bot> Hello user 👋!! Enter your name to start the converstation: ")
+        print('\n')
     green_start = esc(32)
 
         
     while True:
         try:
-            prompt = input(f'{green_start}{user_name}>')
+            prompt = input(f'{green_start}{user_name}> ')
         except (KeyboardInterrupt, EOFError):
             print(END, end='')
             print('exit')
@@ -96,7 +99,7 @@ def reply(session, pm):
         if not prompt:
             continue
         print()
-        if prompt in ['exit', 'stop','quit','revoke']:
+        if prompt in ['exit', 'stop','quit','bye']:
             print(red(f'Exiting'))
             break
         
