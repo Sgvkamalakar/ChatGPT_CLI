@@ -1,5 +1,5 @@
 class Config:
-    api_key = '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'
+    api_key = 'YOUR_API_KEY'
     api_base_url = 'https://api.openai.com/v1/'
     gpt_model='gpt-3.5-turbo'
     default_params = {
