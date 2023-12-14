@@ -28,6 +28,11 @@ The goal is to create an environment where users can seamlessly interact with th
 5. Update your API key in `config.py`
 6. To execute the Python code, run `python main.py` in your command line interface (CLI).
 
+![image](https://github.com/Sgvkamalakar/ChatGPT_CLI/assets/103712713/1c36fac9-f15b-4349-a510-3cd4c0cc7d0f)
+
+![image](https://github.com/Sgvkamalakar/ChatGPT_CLI/assets/103712713/83f48eec-5228-4194-9650-5986d88d5bc6)
+
+
 ## Contributions
   Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
 
