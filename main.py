@@ -11,7 +11,7 @@ inline_code_re=re.compile(r'`([^\n`]+)`')
 multiline_code_re=re.compile(r'```\w*\n([^`]+)\n```')
 
 def main():
-    parser=argparse.ArgumentParser(description="A simple CLI for ChatGPT API", epilog="", formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser=argparse.ArgumentParser(description="A simple CLI for ChatGPT", epilog="", formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('prompt', metavar="PROMPT", type=str, nargs='?', help="Your prompt to start the conversation.")
     args=parser.parse_args()
 
@@ -137,10 +137,6 @@ def print_message(message):
             
             content_color=white
             role_color=white_hl
-
-            if role=='user':
-                content_color=green
-                role_color=green_hl
 
             s=content_color(content)
             if Config.verbose:
