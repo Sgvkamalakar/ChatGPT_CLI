@@ -1,3 +1,10 @@
+<p align="center">
+  <img src='https://github.com/Sgvkamalakar/ChatGPT_CLI/assets/103712713/7f9ce1ca-acc9-4b32-a38e-cc50c6376f92' alt="Image">
+</p>
+
+
+
+
 # ChatGPT CLI
 
 ChatGPT CLI is a user-friendly Python tool designed for effortless conversations with OpenAI's GPT models through the command line interface. With this tool, users can interact, prompt, and explore the capabilities of GPT-3.5 Turbo seamlessly.
